@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Etkinlik – Etkinlik Yönetim Uygulaması</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <h1>🎉 Etkinlik</h1>
+      <p class="subtitle">Etkinliklerinizi kolayca planlayın ve yönetin</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Yeni Etkinlik Formu -->
+    <section class="card" id="form-section">
+      <h2>Yeni Etkinlik Ekle</h2>
+      <form id="event-form">
+        <div class="form-group">
+          <label for="event-title">Etkinlik Adı *</label>
+          <input type="text" id="event-title" placeholder="Etkinlik adını girin" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="event-date">Tarih *</label>
+            <input type="date" id="event-date" required />
+          </div>
+          <div class="form-group">
+            <label for="event-time">Saat *</label>
+            <input type="time" id="event-time" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="event-location">Konum</label>
+          <input type="text" id="event-location" placeholder="Etkinlik konumunu girin" />
+        </div>
+        <div class="form-group">
+          <label for="event-category">Kategori</label>
+          <select id="event-category">
+            <option value="genel">Genel</option>
+            <option value="egitim">Eğitim</option>
+            <option value="spor">Spor</option>
+            <option value="sanat">Sanat & Kültür</option>
+            <option value="teknoloji">Teknoloji</option>
+            <option value="eglence">Eğlence</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="event-desc">Açıklama</label>
+          <textarea id="event-desc" rows="3" placeholder="Etkinlik hakkında kısa bir açıklama girin"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Etkinlik Ekle</button>
+      </form>
+    </section>
+
+    <!-- Filtre & Arama -->
+    <section class="filters">
+      <input type="text" id="search" placeholder="🔍 Etkinlik ara..." />
+      <select id="filter-category">
+        <option value="">Tüm Kategoriler</option>
+        <option value="genel">Genel</option>
+        <option value="egitim">Eğitim</option>
+        <option value="spor">Spor</option>
+        <option value="sanat">Sanat & Kültür</option>
+        <option value="teknoloji">Teknoloji</option>
+        <option value="eglence">Eğlence</option>
+      </select>
+    </section>
+
+    <!-- Etkinlik Listesi -->
+    <section id="events-section">
+      <h2>Etkinlikler <span id="event-count" class="badge">0</span></h2>
+      <div id="events-grid" class="events-grid"></div>
+      <p id="empty-msg" class="empty-msg">Henüz etkinlik yok. Yukarıdan yeni bir etkinlik ekleyin!</p>
+    </section>
+  </main>
+
+  <!-- Etkinlik Detay Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Kapat">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Etkinlik – Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
