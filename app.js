@@ -59,7 +59,7 @@ function seedEvents() {
       date: add(20),
       time: '07:30',
       location: 'Sultanahmet Meydanı, İstanbul',
-      description: 'İki kıtayı birbirine bağlayan eşsiz İstanbul Maratonu\'na katıl! 42 km, 21 km ve 10 km kategorileri mevcut.',
+      description: "İki kıtayı birbirine bağlayan eşsiz İstanbul Maratonu'na katıl! 42 km, 21 km ve 10 km kategorileri mevcut.",
       capacity: 10000,
     },
     {
