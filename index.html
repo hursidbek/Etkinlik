@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Etkinlik – Etkinlik Yönetimi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo" id="logoBtn">🎉 Etkinlik</h1>
+      <button class="btn btn-primary" id="newEventBtn">+ Yeni Etkinlik</button>
+    </div>
+  </header>
+
+  <!-- List View -->
+  <main class="container" id="listView">
+    <section class="hero">
+      <h2>Yaklaşan Etkinlikler</h2>
+      <p>Katılmak istediğin etkinlikleri keşfet veya kendi etkinliğini oluştur.</p>
+    </section>
+
+    <div class="filters">
+      <input type="text" id="searchInput" class="search-input" placeholder="Etkinlik ara..." />
+      <select id="categoryFilter" class="filter-select">
+        <option value="">Tüm Kategoriler</option>
+        <option value="Müzik">Müzik</option>
+        <option value="Spor">Spor</option>
+        <option value="Sanat">Sanat</option>
+        <option value="Teknoloji">Teknoloji</option>
+        <option value="Yemek">Yemek</option>
+        <option value="Eğitim">Eğitim</option>
+        <option value="Diğer">Diğer</option>
+      </select>
+    </div>
+
+    <div class="event-grid" id="eventGrid">
+      <!-- Cards injected by JS -->
+    </div>
+
+    <p class="empty-state" id="emptyState" hidden>Henüz etkinlik yok. İlk etkinliği sen oluştur!</p>
+  </main>
+
+  <!-- Detail View -->
+  <main class="container" id="detailView" hidden>
+    <button class="btn btn-ghost back-btn" id="backBtn">← Geri Dön</button>
+    <article class="detail-card" id="detailCard">
+      <!-- Detail injected by JS -->
+    </article>
+  </main>
+
+  <!-- Modal: Create / Edit Event -->
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h3 id="modalTitle">Yeni Etkinlik</h3>
+        <button class="btn btn-ghost close-btn" id="closeModalBtn" aria-label="Kapat">✕</button>
+      </div>
+      <form id="eventForm" novalidate>
+        <div class="form-group">
+          <label for="fieldTitle">Etkinlik Adı *</label>
+          <input type="text" id="fieldTitle" required maxlength="100" placeholder="Örn: Rock Konseri" />
+          <span class="field-error" id="errTitle"></span>
+        </div>
+        <div class="form-group">
+          <label for="fieldCategory">Kategori *</label>
+          <select id="fieldCategory" required>
+            <option value="">Seçiniz</option>
+            <option value="Müzik">Müzik</option>
+            <option value="Spor">Spor</option>
+            <option value="Sanat">Sanat</option>
+            <option value="Teknoloji">Teknoloji</option>
+            <option value="Yemek">Yemek</option>
+            <option value="Eğitim">Eğitim</option>
+            <option value="Diğer">Diğer</option>
+          </select>
+          <span class="field-error" id="errCategory"></span>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fieldDate">Tarih *</label>
+            <input type="date" id="fieldDate" required />
+            <span class="field-error" id="errDate"></span>
+          </div>
+          <div class="form-group">
+            <label for="fieldTime">Saat *</label>
+            <input type="time" id="fieldTime" required />
+            <span class="field-error" id="errTime"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fieldLocation">Konum *</label>
+          <input type="text" id="fieldLocation" required maxlength="150" placeholder="Örn: Kadıköy, İstanbul" />
+          <span class="field-error" id="errLocation"></span>
+        </div>
+        <div class="form-group">
+          <label for="fieldDescription">Açıklama</label>
+          <textarea id="fieldDescription" rows="4" maxlength="500" placeholder="Etkinlik hakkında kısa bir açıklama yazın..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="fieldCapacity">Kapasite</label>
+          <input type="number" id="fieldCapacity" min="1" max="100000" placeholder="Örn: 200" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-ghost" id="cancelBtn">İptal</button>
+          <button type="submit" class="btn btn-primary" id="submitBtn">Kaydet</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
